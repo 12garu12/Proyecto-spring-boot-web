@@ -5,6 +5,7 @@ import com.bolsadeideas.springboot.web.app.models.Usuario;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.*;
@@ -50,6 +51,14 @@ public class IndexController {
      */
     @RequestMapping("/listar")
     public String listar(Model model){
+
+        model.addAttribute("titulo", "Listado de usuarios");
+
+        return "listar";
+    }
+
+    @ModelAttribute("usuarios") /* Se utiliza para pasar datos en comun y puede servirle a varios metodos handler del controlador y a varias vistas html. */
+    public List<Usuario> listaUsuarios(){
         List<Usuario> usuarios = Arrays.asList( // Metodo asList() de la Clase Arrays
                 new Usuario("Andres", "Guzmán", "andres@correo.com"),
                 new Usuario("Jhon", "Doe", "jhon@correo.com"),
@@ -57,10 +66,7 @@ public class IndexController {
                 new Usuario("Tornado", "Roe", "tornado@correo.com")
         ); // Crea una lista de la clase Usuario.
 
-        model.addAttribute("titulo", "Listado de usuarios");
-        model.addAttribute("usuarios", usuarios);
-
-        return "listar";
+        return usuarios;
     }
 
 
