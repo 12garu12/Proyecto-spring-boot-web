@@ -57,6 +57,10 @@ public class IndexController {
         return "listar";
     }
 
+    /**
+     * Metodo que tiene una lista para retornarla a cualquier metodo o vista que la solicite.
+     * @return una lista de la clase Usuario.
+     */
     @ModelAttribute("usuarios") /* Se utiliza para pasar datos en comun y puede servirle a varios metodos handler del controlador y a varias vistas html. */
     public List<Usuario> listaUsuarios(){
         List<Usuario> usuarios = Arrays.asList( // Metodo asList() de la Clase Arrays

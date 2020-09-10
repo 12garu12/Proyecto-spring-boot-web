@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"> <!-- Motor de plantiyas thimeleaf-->
+<head>
+    <meta charset="UTF-8"/>
+    <title>Enviar parámetros del Request HTTP GET - URL</title>
+</head>
+<body>
+<h1>Enviar parámetros del Request HTTP GET - URL</h1>
+<ul>
+    <li>
+        <a th:href="@{/params/string(texto = 'Hola Andrés')}">/params/string?texto=Hola Andrés</a> <!-- El @{} en tymeleaf para rutas propias del proyecto, controladores, recursos, imagenes, archivos-->
+    </li>
+    <li>
+        <a th:href="@{/params/string(texto = 'Que tal John!')}">/params/string?texto=Que tal Jhon!</a>
+    </li>
+</ul>
+
+</body>
+</html>
