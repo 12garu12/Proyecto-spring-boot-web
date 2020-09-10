@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.*;
+
 
 @Controller
 @RequestMapping("/app")
@@ -40,5 +42,21 @@ public class IndexController {
 
         return "perfil";
     }
+
+    /**
+     * Metodo para una lista de usuarios y pasarlos a un archivo listar.html.
+     * @param model utiliza los metodos de la interfaz Model para pasar datos clave valor.
+     * @return un archivo listar.html.a
+     */
+    @RequestMapping("/listar")
+    public String listar(Model model){
+        List<Usuario> usuarios = new ArrayList<>();
+
+        model.addAttribute("titulo", "Listado de usuarios");
+        model.addAttribute("usuarios", usuarios);
+
+        return "listar";
+    }
+
 
 }
