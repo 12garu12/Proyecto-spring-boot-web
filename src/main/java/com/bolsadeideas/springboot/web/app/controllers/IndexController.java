@@ -19,7 +19,7 @@ public class IndexController {
      * @param model se utiliza para pasar parametros a la vista con clave y valor.
      * @return un archivo index.html.
      */
-    @GetMapping({"/index", "/", "/home", ""})
+    @GetMapping({"/index", "/", "/home", ""}) // Mapea la ruta desde una peticion http con el metodo GET
     public String index(Model model){
         model.addAttribute("titulo", "hola Spring Framework con Model!");
         return "index";
@@ -30,7 +30,7 @@ public class IndexController {
      * @param model utiliza los metodos de la interfaz Model para pasar datos clave valor.
      * @return un archivo perfil.html.
      */
-    @RequestMapping("/perfil")
+    @RequestMapping("/perfil") // Mapea la ruta desde una peticion http con el metodo GET por defecto.
     public String perfil(Model model){
         Usuario usuario = new Usuario();
         usuario.setNombre("Andrés");
@@ -50,7 +50,12 @@ public class IndexController {
      */
     @RequestMapping("/listar")
     public String listar(Model model){
-        List<Usuario> usuarios = new ArrayList<>();
+        List<Usuario> usuarios = Arrays.asList( // Metodo asList() de la Clase Arrays
+                new Usuario("Andres", "Guzmán", "andres@correo.com"),
+                new Usuario("Jhon", "Doe", "jhon@correo.com"),
+                new Usuario("Jane", "Doe", "jane@correo.com"),
+                new Usuario("Tornado", "Roe", "tornado@correo.com")
+        ); // Crea una lista de la clase Usuario.
 
         model.addAttribute("titulo", "Listado de usuarios");
         model.addAttribute("usuarios", usuarios);
