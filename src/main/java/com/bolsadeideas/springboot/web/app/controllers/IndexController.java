@@ -8,15 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
-
 @Controller
 @RequestMapping("/app")
 public class IndexController {
 
     /**
-     * metodo de prueba
+     * metodo que pasa al archivo index.html un titulo.
      * @param model se utiliza para pasar parametros a la vista con clave y valor.
-     * @return
+     * @return un archivo index.html.
      */
     @GetMapping({"/index", "/", "/home", ""})
     public String index(Model model){
@@ -24,11 +23,17 @@ public class IndexController {
         return "index";
     }
 
+    /**
+     * Metodo que pasa al archivo perfil.html los valores de los atributos de un usuario.
+     * @param model utiliza los metodos de la interfaz Model para pasar datos clave valor.
+     * @return un archivo perfil.html.
+     */
     @RequestMapping("/perfil")
     public String perfil(Model model){
         Usuario usuario = new Usuario();
         usuario.setNombre("Andrés");
         usuario.setApellido("Guzmán");
+        usuario.setEmail("andres@correo.com");
 
         model.addAttribute("usuario", usuario);
         model.addAttribute("titulo", "Perfil del usuario: ".concat(usuario.getNombre()));

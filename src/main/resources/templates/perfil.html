@@ -5,8 +5,11 @@
     <title th:text="${titulo}"></title> <!--Conecta con el metodo perfil en el controlador y el objeto Model model-->
 </head>
 <body>
-<h1 th:text="${titulo}"></h1>
-<span th:text="${usuario.nombre}"></span>  <!--Conecta con el metodo perfil en el controlador y el objeto Model model-->
-<span th:text="${usuario.apellido}"></span>
+    <h1 th:text="${titulo}"></h1>
+    <span th:text="${usuario.nombre}"></span>  <!--Conecta con el metodo perfil en el controlador y el objeto Model model-->
+    <span th:text="${usuario.apellido}"></span>
+    <br>
+    <span th:if="${usuario.email}" th:text="${usuario.email}"></span> <!--Condicional if de thymeleaf-->
+    <span th:if="${usuario.email == null}" th:text="'El usuario no tiene correo'"></span>
 </body>
 </html>
