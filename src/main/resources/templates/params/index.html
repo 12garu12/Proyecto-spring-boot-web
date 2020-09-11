@@ -8,10 +8,18 @@
 <h1>Enviar parámetros del Request HTTP GET - URL</h1>
 <ul>
     <li>
-        <a th:href="@{/params/string(texto = 'Hola Andrés')}">/params/string?texto=Hola Andrés</a> <!-- El @{} en tymeleaf para rutas propias del proyecto, controladores, recursos, imagenes, archivos-->
+        <a th:href="@{/params/string(texto = 'Hola Andrés')}">/params/string?texto=Hola Andrés</a> <!-- El @{} en thymeleaf para rutas propias del proyecto, controladores, recursos, imagenes, archivos-->
     </li>
     <li>
         <a th:href="@{/params/string(texto = 'Que tal John!')}">/params/string?texto=Que tal Jhon!</a>
+    </li>
+    <li>
+        <!--Para enviar varios parametros por peticiones HTTP y thymeleaf-->
+        <a th:href="@{/params/mix-params(saludo = 'Como estas Andrés', numero = 7)}">/params/mix-params?saludo=Como estas Andrés&numero=7</a>}
+    </li>
+    <li>
+        <!--Para enviar varios parametros por peticiones HTTP y thymeleaf -->
+        <a th:href="@{/params/mix-params-request(saludo = 'Como estas Andrés', numero = 7)}">/params/mix-params-request?saludo=Como estas Andrés&numero=7</a>
     </li>
 </ul>
 
