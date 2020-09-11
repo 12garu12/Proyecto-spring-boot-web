@@ -2,12 +2,12 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org"> <!-- Motor de plantillas thimeleaf-->
 <head>
     <meta charset="UTF-8"/>
-    <title > Recibir parámetros del Request HTTP GEt - URL </title>
+    <title th:text="${titulo}"></title>
 </head>
 <body>
-<h1 > Recibir parámetros del Request HTTP GEX - URL </h1>
-<div th:text="${resultado}"></div>
 
+<h1 th:text="${titulo}"></h1>
+<div th:text="${resultado}"></div>
 
 </body>
 </html>
