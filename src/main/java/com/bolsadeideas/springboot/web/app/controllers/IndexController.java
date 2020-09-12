@@ -2,6 +2,7 @@ package com.bolsadeideas.springboot.web.app.controllers;
 
 
 import com.bolsadeideas.springboot.web.app.models.Usuario;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,15 @@ import java.util.*;
 @RequestMapping("/app")
 public class IndexController {
 
+    @Value("${texto.indexcontroller.index.titulo}") /*Configuracion de los textos en applicacions.properties*/
+    private String textoIndex;
+
+    @Value("${texto.indexcontroller.perfil.titulo}") /*Configuracion de los textos en applicacions.properties*/
+    private String textoPerfil;
+
+    @Value("${texto.indexcontroller.listar.titulo}") /*Configuracion de los textos en applicacions.properties*/
+    private String textoListar;
+
     /**
      * metodo que pasa al archivo index.html un titulo.
      * @param model se utiliza para pasar parametros a la vista con clave y valor.
@@ -22,7 +32,7 @@ public class IndexController {
      */
     @GetMapping({"/index", "/", "/home", ""}) // Mapea la ruta desde una peticion http con el metodo GET
     public String index(Model model){
-        model.addAttribute("titulo", "hola Spring Framework con Model!");
+        model.addAttribute("titulo", textoIndex);
         return "index";
     }
 
@@ -39,7 +49,7 @@ public class IndexController {
         usuario.setEmail("andres@correo.com");
 
         model.addAttribute("usuario", usuario);
-        model.addAttribute("titulo", "Perfil del usuario: ".concat(usuario.getNombre()));
+        model.addAttribute("titulo", textoPerfil.concat(usuario.getNombre()));
 
         return "perfil";
     }
@@ -52,7 +62,7 @@ public class IndexController {
     @RequestMapping("/listar")
     public String listar(Model model){
 
-        model.addAttribute("titulo", "Listado de usuarios");
+        model.addAttribute("titulo", textoListar);
 
         return "listar";
     }
