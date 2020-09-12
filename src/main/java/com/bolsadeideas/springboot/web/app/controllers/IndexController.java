@@ -16,13 +16,13 @@ import java.util.*;
 @RequestMapping("/app")
 public class IndexController {
 
-    @Value("${texto.indexcontroller.index.titulo}") /*Configuracion de los textos en applicacions.properties*/
+    @Value("${texto.indexcontroller.index.titulo}") /*Configuracion de los textos en textos.properties*/
     private String textoIndex;
 
-    @Value("${texto.indexcontroller.perfil.titulo}") /*Configuracion de los textos en applicacions.properties*/
+    @Value("${texto.indexcontroller.perfil.titulo}") /*Configuracion de los textos en textos.properties*/
     private String textoPerfil;
 
-    @Value("${texto.indexcontroller.listar.titulo}") /*Configuracion de los textos en applicacions.properties*/
+    @Value("${texto.indexcontroller.listar.titulo}") /*Configuracion de los textos en textos.properties*/
     private String textoListar;
 
     /**
